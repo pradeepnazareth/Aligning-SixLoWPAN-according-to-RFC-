@@ -10,9 +10,14 @@ If bit 5 and 6 of HC1 encoding correspond to:
 00 : Next header is not compressed
 
 01 : UDP compression
+
 10 : ICMP Compression
+
 11 : TCP compression
 
+
 Bit 7 of HC1 encoding:
+
 1 : Indicates HC1 encoding immediately followed by more header compression
+
 0: No more header compression bits
