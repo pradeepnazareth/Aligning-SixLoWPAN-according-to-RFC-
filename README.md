@@ -3,9 +3,9 @@ Wireless Networks course project on SixLoWPAN
 ## March 11 - 24
 Reading RFC 4944
 ## UDP Compression Summary
-Bits 5 and 6 of HC! encoding indicates compresion of next header(TCP,UDP,ICMP).
+Bits 5 and 6 of LOWPAN_HC1 (HC1 encoding ) encoding indicates compresion of next header(TCP,UDP,ICMP).
 
-If bit 5 and 6 of HC1 encoding correspond to:
+If bit 5 and 6 of LOWPAN_HC1 correspond to:
 
 00 : Next header is not compressed
 
@@ -18,15 +18,17 @@ If bit 5 and 6 of HC1 encoding correspond to:
 
 Bit 7 of HC1 encoding:
 
-1 : Indicates HC1 encoding immediately followed by more header compression
+1 : Indicates LOWPAN_HC1 immediately followed by more header compression
 
 0: No more header compression bits
 
+## UDP Compressed header encoding
 
+                    1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|HC_UDP       | Fields carried in-line follow...
+|    encodin  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-0 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 20 1 2 3 4 5 6 7 8 9 30 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|HC_UDP encoding|  Fields carried in-line follow...
-|               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-          UDP compressed header
+In the first 8 bits in compressed  UDP:
