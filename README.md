@@ -24,11 +24,9 @@ Bit 7 of HC1 encoding:
 
 ## UDP Compressed header encoding
 
-                    1                   2                   3
-0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|HC_UDP       | Fields carried in-line follow...
-|    encodin  |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  0                  7                                     31
+  
+  HC_UDP Encoding        Fields carriedin-lines
+
 
 In the first 8 bits in compressed  UDP:
