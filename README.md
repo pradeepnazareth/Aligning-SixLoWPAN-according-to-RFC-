@@ -9,7 +9,7 @@
 
 HC2 encoding performs compression of UDP header.
 
-Bits 5 and 6 of LOWPAN_HC1 (HC1 encoding ) encoding indicates compresion of next header(TCP,UDP,ICMP).
+Bits 5 and 6 of LOWPAN_HC1 (HC1 encoding ) encoding indicates compresion of next header(TCP/UDP/ICMP).
 
 If bit 5 and 6 of LOWPAN_HC1 correspond to:
 
@@ -30,6 +30,27 @@ Bit 7 of HC1 encoding:
 
 ### UDP Compressed header encoding
 
+UDP encoding has 8 bits correspond to:
+
 #### UDP source port(bit 0):
 0: Not compressed
 1: compressed to 4 bits from 16 bits.
+Source Port= P + short_port value.
+where P= 0xF0B0 (decimal 61616).
+short_port value expressed as a 4-bit value carried-in-line.
+
+#### UDP destination port(bit 1):
+0: Not Compressed
+1: Compressed to 4 bits from 16 bits.
+Destination Port= P + short_port value.
+where P= 0xF0B0 (decimal 61616).
+short_port value expressed as a 4-bit value carried "in-line".
+
+#### Length (bit 2):
+0 : Not compressed
+1:  Compressed. The UDP length field is equal to payload lenth from IPv6 header - length of any headers present between IPv6 header and UDP header
+
+#### Reserved (bit 3 through 7)
+
+
+
