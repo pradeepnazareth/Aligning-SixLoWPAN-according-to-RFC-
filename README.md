@@ -41,8 +41,11 @@ short_port value expressed as a 4-bit value carried-in-line.
 
 #### UDP destination port(bit 1):
 0: Not Compressed
+
 1: Compressed to 4 bits from 16 bits.
+
 Destination Port= P + short_port value.
+
 where P= 0xF0B0 (decimal 61616).
 short_port value expressed as a 4-bit value carried "in-line".
 
@@ -54,7 +57,9 @@ short_port value expressed as a 4-bit value carried "in-line".
 
 #### References:
 1. RFC 4944
+
 2.http://cnds.eecs.jacobs-university.de/slides/2010-aims-6lowpan.pdf
+
 3.http://www.cse.wustl.edu/~jain/cse570-13/ftp/m_19lpn.pdf
 
 
