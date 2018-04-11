@@ -1,8 +1,14 @@
-# Aligning-SixLoWPAN-according-to-RFC-
-Wireless Networks course project on SixLoWPAN
-## March 11 - 24
-Reading RFC 4944
-## UDP Compression Summary
+# Aligning 6LoWPAN according to RFC4944
+## Course Code: CS821
+
+### Overview
+
+6LoWPAN performs compression of IPv6 Packets specified by RFC 4944 with exception of HC2 encoding.
+
+### Description
+
+HC2 encoding performs compression of UDP header.
+
 Bits 5 and 6 of LOWPAN_HC1 (HC1 encoding ) encoding indicates compresion of next header(TCP,UDP,ICMP).
 
 If bit 5 and 6 of LOWPAN_HC1 correspond to:
@@ -22,11 +28,8 @@ Bit 7 of HC1 encoding:
 
 0: No more header compression bits
 
-## UDP Compressed header encoding
+### UDP Compressed header encoding
 
-  0                  7                                     31
-  
-  HC_UDP Encoding        Fields carriedin-lines
-
-
-In the first 8 bits in compressed  UDP:
+#### UDP source port(bit 0):
+0: Not compressed
+1: compressed to 4 bits from 16 bits.
