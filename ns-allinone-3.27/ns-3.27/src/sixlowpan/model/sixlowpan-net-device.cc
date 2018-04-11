@@ -759,6 +759,29 @@ SixLowPanNetDevice::DecompressLowPanHc1 (Ptr<Packet> packet, Address const &src,
 }
 
 uint32_t
+ SixLowPanNetDevice::CompressLowPanHc2 (Ptr<Packet> packet, Address const &src, Address const &dst)
+   {
+    NS_LOG_FUNCTION (this << *packet << src << dst);
+ 
+ 
+        UdpHeader udpHeader;          
+		SixLowPanHc2 hc2Header;
+        uint32_t size = 0;
+   
+        if ( packet->PeekHeader (udpHeader) != 0 )
+        {
+          packet->RemoveHeader (udpHeader);
+          size += udpHeader.GetSerializedSize ();
+          hc2Header.SetChecksum (udpHeader.GetChecksum ());
+                 
+           
+          uint16_t srcPort = udpHeader.GetSourcePort ();
+          uint16_t dstPort = udpHeader.GetDestinationPort ();
+	    }
+  }
+
+
+uint32_t
 SixLowPanNetDevice::CompressLowPanIphc (Ptr<Packet> packet, Address const &src, Address const &dst)
 {
   NS_LOG_FUNCTION (this << *packet << src << dst);
