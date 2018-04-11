@@ -52,5 +52,10 @@ short_port value expressed as a 4-bit value carried "in-line".
 
 #### Reserved (bit 3 through 7)
 
+#### References:
+1. RFC 4944
+2.http://cnds.eecs.jacobs-university.de/slides/2010-aims-6lowpan.pdf
+3.http://www.cse.wustl.edu/~jain/cse570-13/ftp/m_19lpn.pdf
+
 
 
