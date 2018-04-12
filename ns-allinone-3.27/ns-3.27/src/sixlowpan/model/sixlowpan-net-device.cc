@@ -759,13 +759,13 @@ SixLowPanNetDevice::DecompressLowPanHc1 (Ptr<Packet> packet, Address const &src,
 }
 
 uint32_t
- SixLowPanNetDevice::CompressLowPanHc2 (Ptr<Packet> packet, Address const &src, Address const &dst)
+ SixLowPanNetDevice::CompressLowPanHc2 (Ptr<Packet> packet, uint16_t &src, uint16_t &dst)
    {
     NS_LOG_FUNCTION (this << *packet << src << dst);
  
  
         UdpHeader udpHeader;          
-		SixLowPanHc2 hc2Header;
+	SixLowPanHc2 hc2Header;
         uint32_t size = 0;
    
         if ( packet->PeekHeader (udpHeader) != 0 )

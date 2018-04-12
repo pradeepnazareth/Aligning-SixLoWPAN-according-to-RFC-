@@ -303,6 +303,19 @@ private:
    * \param [in] dst the MAC destination address.
    */
   void DecompressLowPanHc1 (Ptr<Packet> packet, Address const &src, Address const &dst);
+  /**
+   * \Compress the UDP headers according to HC2 compression UDP Compression
+   * \param [in] packet the packet to be compressed.
+   * \param [in] src the Source Port.
+   * \param [in] dst the Destination Port*/
+  uint32_t CompressLowPanHc2 (Ptr<Packet> packet, uint16_t &src, uint16_t &dst);
+  /**
+   * \Decompress the UDP headers according to HC2 compression UDP Compression
+   * \param [in] packet the packet to be compressed.
+   * \param [in] src the Source Port.
+   * \param [in] dst the Destination Port*/
+  void DecompressLowPanHc2 (Ptr<Packet> packet, uint16_t &src, uint16_t &dst);
+
 
   /**
    * \brief Compress the headers according to IPHC compression.

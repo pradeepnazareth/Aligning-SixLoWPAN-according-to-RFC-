@@ -358,6 +358,58 @@ private:
   bool m_hc2HeaderPresent;      //!< Is next header HC2 compressed.
 };
 
+/* RFC 4944*/
+class SixLowPanHc2 : public Header
+{
+public:
+ 
+  SixLowPanHc2 (void);
+
+  /**
+   * \brief Get the type ID.
+   * \return The object TypeId.
+   */
+  static TypeId GetTypeId (void);
+
+  /**
+   * \brief Return the instance type identifier.
+   * \return Instance type ID.
+   */
+
+  virtual TypeId GetInstanceTypeId (void) const;
+
+  virtual void Print (std::ostream& os) const;
+
+  /**
+   * \brief Get the serialized size of the packet.
+   * \return Size.
+   */
+  virtual uint32_t GetSerializedSize (void) const;
+
+  /**
+   * \brief Serialize the packet.
+   * \param [in] start Buffer iterator.
+   */
+  virtual void Serialize (Buffer::Iterator start) const;
+
+  /**
+   * \brief Deserialize the packet.
+   * \param [in] start Buffer iterator.
+   * \return Size of the packet.
+   */
+  virtual uint32_t Deserialize (Buffer::Iterator start);
+
+  
+  const uint8_t* GetSrcInterface () const;
+ 
+
+  private:
+   uint16_t m_checksum;  //!< Checksum.
+   uint16_t m_srcPort;   //!< Source port.
+   uint16_t m_dstPort;   //!< Destination port.
+};
+
+
 /**
  * \brief Stream insertion operator.
  *

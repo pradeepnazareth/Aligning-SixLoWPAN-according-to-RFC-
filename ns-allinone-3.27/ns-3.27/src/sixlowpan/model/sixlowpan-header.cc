@@ -536,6 +536,23 @@ std::ostream & operator << (std::ostream & os, const SixLowPanHc1 & h)
 {
   h.Print (os);
   return os;
+
+ */
+NS_OBJECT_ENSURE_REGISTERED (SixLowPanHc1);
+
+
+TypeId SixLowPanHc2::GetTypeId (void)
+{
+  static TypeId tid = TypeId ("ns3::SixLowPanHc2")
+    .SetParent<Header> ()
+    .SetGroupName ("SixLowPan")
+    .AddConstructor<SixLowPanHc2> ();
+  return tid;
+}
+
+
+
+
 }
 
 /*
